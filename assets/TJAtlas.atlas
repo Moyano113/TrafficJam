@@ -1,0 +1,62 @@
+
+TJAtlas.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+bache
+  rotate: false
+  xy: 484, 612
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+coche_amarillo
+  rotate: false
+  xy: 2, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+coche_azul
+  rotate: false
+  xy: 68, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+coche_rojo
+  rotate: false
+  xy: 2, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+coche_verde
+  rotate: false
+  xy: 484, 546
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+cono
+  rotate: false
+  xy: 742, 870
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+fondo_carretera
+  rotate: false
+  xy: 2, 134
+  size: 480, 800
+  orig: 480, 800
+  offset: 0, 0
+  index: -1
+toca_empezar
+  rotate: false
+  xy: 484, 678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
