@@ -1,5 +1,6 @@
 package com.mygdx.game.actors;
 
+import static com.mygdx.game.extra.Util.OBJECT_SPEED;
 import static com.mygdx.game.extra.Util.USER_POTHOLE;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,7 +14,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Pothole extends Actor {
-    private static final float SPEED = -1f;
 
     private TextureRegion potholeTexture;
     private World world;
@@ -35,7 +35,7 @@ public class Pothole extends Actor {
 
         body = world.createBody(bodyDef);
         body.setUserData(USER_POTHOLE);
-        body.setLinearVelocity(0, SPEED);
+        body.setLinearVelocity(0, OBJECT_SPEED);
     }
 
     private void createFixture(){
@@ -47,7 +47,11 @@ public class Pothole extends Actor {
     }
 
     public boolean isOutOfScreen(){
-        return this.body.getPosition().y <= -2f;
+        return this.body.getPosition().y <= -1f;
+    }
+
+    public void stopPothole(){
+        body.setLinearVelocity(0,0);
     }
 
     @Override

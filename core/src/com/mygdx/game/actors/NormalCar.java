@@ -1,5 +1,6 @@
 package com.mygdx.game.actors;
 
+import static com.mygdx.game.extra.Util.OBJECT_SPEED;
 import static com.mygdx.game.extra.Util.USER_NORMAL_CAR;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -14,8 +15,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class NormalCar extends Actor {
-    private static final float SPEED = -1f;
-
     private TextureRegion normalCarTexture;
     private World world;
     private Body body;
@@ -36,7 +35,7 @@ public class NormalCar extends Actor {
 
         body = world.createBody(bodyDef);
         body.setUserData(USER_NORMAL_CAR);
-        body.setLinearVelocity(0, SPEED);
+        body.setLinearVelocity(0, OBJECT_SPEED);
     }
 
     private void createFixture(){
@@ -48,7 +47,11 @@ public class NormalCar extends Actor {
     }
 
     public boolean isOutOfScreen(){
-            return this.body.getPosition().y <= -2f;
+            return this.body.getPosition().y <= -1f;
+    }
+
+    public void stopNormalCar(){
+        body.setLinearVelocity(0,0);
     }
 
     @Override

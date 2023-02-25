@@ -1,5 +1,6 @@
 package com.mygdx.game.actors;
 
+import static com.mygdx.game.extra.Util.OBJECT_SPEED;
 import static com.mygdx.game.extra.Util.USER_CONE;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,8 +14,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Cone extends Actor {
-    private static final float SPEED = -1f;
-
     private TextureRegion coneTexture;
     private World world;
     private Body body;
@@ -28,6 +27,7 @@ public class Cone extends Actor {
         createFixture();
     }
 
+    //Creacion de body
     private void createBody(Vector2 position){
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(position);
@@ -35,9 +35,10 @@ public class Cone extends Actor {
 
         body = world.createBody(bodyDef);
         body.setUserData(USER_CONE);
-        body.setLinearVelocity(0, SPEED);
+        body.setLinearVelocity(0, OBJECT_SPEED);
     }
 
+    //Creacion de la caja de colisiones
     private void createFixture(){
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(0.25f, 0.25f);
@@ -46,8 +47,14 @@ public class Cone extends Actor {
         shape.dispose();
     }
 
+    //Comprueba si esta fuera de la pantalla
     public boolean isOutOfScreen(){
-        return this.body.getPosition().y <= -2f;
+        return this.body.getPosition().y <= -1f;
+    }
+
+    //Para el movimiento del objeto
+    public void stopCone(){
+        body.setLinearVelocity(0,0);
     }
 
     @Override

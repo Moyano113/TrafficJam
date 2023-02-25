@@ -47,6 +47,7 @@ public class MainCar extends Actor {
         createFixture();
     }
 
+    //Crea el cuerpo del objeto
     private void createBody(){
         BodyDef bodyDef = new BodyDef();
 
@@ -56,7 +57,12 @@ public class MainCar extends Actor {
         this.body = this.world.createBody(bodyDef);
     }
 
+    //Comprueba si se ha chocado
+    public void isCrashed(){
+        this.state = STATE_CRASHED;
+    }
 
+    //Crea la caja de colisiones
     private void createFixture(){
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(0.4f, 0.5f);
@@ -65,6 +71,7 @@ public class MainCar extends Actor {
         shape.dispose();
     }
 
+    //Devuelve el estado del coche
     public int getState(){
         return this.state;
     }
@@ -85,11 +92,15 @@ public class MainCar extends Actor {
         boolean touched = Gdx.input.justTouched();
         float touchedX = Gdx.input.getX();
 
+        //Se comprueba si se ha tocado la pantalla
         if(touched){
+            //Comprueba la cordenada x que se ha tocado y va a izquierda o derecha en funcion de esta
             if(touchedX > Gdx.graphics.getWidth()/2){
                 this.body.setTransform(body.getPosition().x += 0.9f, 1f, 0f);
+                this.body.setLinearVelocity(0,0);
             }else if(touchedX < Gdx.graphics.getWidth()/2){
                 this.body.setTransform(body.getPosition().x -= 0.9f, 1f, 0f);
+                this.body.setLinearVelocity(0,0);
             }
         }
     }
