@@ -6,21 +6,21 @@ filter: Nearest, Nearest
 repeat: none
 bache
   rotate: false
-  xy: 484, 612
-  size: 64, 64
-  orig: 64, 64
+  xy: 68, 100
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
 coche_amarillo
   rotate: false
-  xy: 2, 2
+  xy: 484, 612
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 coche_azul
   rotate: false
-  xy: 68, 68
+  xy: 742, 870
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -34,16 +34,16 @@ coche_rojo
   index: -1
 coche_verde
   rotate: false
-  xy: 484, 546
+  xy: 2, 2
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 cono
   rotate: false
-  xy: 742, 870
-  size: 64, 64
-  orig: 64, 64
+  xy: 484, 578
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
 fondo_carretera
