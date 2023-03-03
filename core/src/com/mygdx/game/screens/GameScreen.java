@@ -38,6 +38,7 @@ import com.mygdx.game.actors.MainCar;
 import com.mygdx.game.actors.NormalCar;
 import com.mygdx.game.actors.Pothole;
 
+
 public class GameScreen extends BaseScreen implements ContactListener {
     private static float TIME_SPAWN_OBJECT = 2f;
 
@@ -252,6 +253,9 @@ public class GameScreen extends BaseScreen implements ContactListener {
         addRightSidewalk();
         addLeftSidewalk();
 
+        OBJECT_SPEED = -1f;
+        TIME_SPAWN_OBJECT = 2f;
+
         this.music.setLooping(true);
         this.music.setVolume(0.15f);
         this.motor.setLooping(true);
@@ -269,7 +273,6 @@ public class GameScreen extends BaseScreen implements ContactListener {
         this.stage.act();
         this.world.step(delta, 6, 2);
         this.stage.draw();
-        this.debugRenderer.render(this.world, this.worldCamera.combined);
 
         removeObject();
 
@@ -313,12 +316,7 @@ public class GameScreen extends BaseScreen implements ContactListener {
             }
         }
 
-        this.stage.addAction(Actions.sequence(Actions.delay(1.5f), Actions.run(new Runnable() {
-            @Override
-            public void run() {
-                mainGame.setScreen(mainGame.startScreen);
-            }
-        })));
+        mainGame.setScreen(new GameOverScreen(mainGame));
 
     }
 

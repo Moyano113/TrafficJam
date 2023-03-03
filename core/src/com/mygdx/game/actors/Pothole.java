@@ -46,10 +46,12 @@ public class Pothole extends Actor {
         shape.dispose();
     }
 
+    //Comprueba si esta fuera de la pantalla
     public boolean isOutOfScreen(){
         return this.body.getPosition().y <= -1f;
     }
 
+    //Para el ahujero
     public void stopPothole(){
         body.setLinearVelocity(0,0);
     }

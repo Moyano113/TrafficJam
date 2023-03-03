@@ -7,6 +7,7 @@ import static com.mygdx.game.extra.Util.CONE;
 import static com.mygdx.game.extra.Util.CRASH_SOUND;
 import static com.mygdx.game.extra.Util.FONT_FNT;
 import static com.mygdx.game.extra.Util.FONT_PNG;
+import static com.mygdx.game.extra.Util.GAME_OVER;
 import static com.mygdx.game.extra.Util.GREEN_CAR;
 import static com.mygdx.game.extra.Util.MOTOR;
 import static com.mygdx.game.extra.Util.MUSIC;
@@ -19,6 +20,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -35,6 +37,7 @@ public class CtrlAssets {
         assetManager.load(MUSIC, Music.class);
         assetManager.load(MOTOR, Music.class);
         assetManager.load(CRASH_SOUND, Sound.class);
+        assetManager.load(GAME_OVER, Texture.class);
         assetManager.finishLoading();
 
         this.textureAtlas = assetManager.get(ATLAS_MAP);
@@ -46,6 +49,10 @@ public class CtrlAssets {
 
     public TextureRegion getTocaEmpezar(){
         return this.textureAtlas.findRegion(TOCA_EMPEZAR);
+    }
+
+    public Texture getGameOver(){
+        return new Texture(GAME_OVER);
     }
 
     public TextureRegion getMainCar(){return new TextureRegion(textureAtlas.findRegion(RED_CAR));}

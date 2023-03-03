@@ -11,11 +11,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.MainGame;
 
+//Esta clase es la encargada de gestionar la pantalla de Game Over
 public class StartScreen extends BaseScreen {
     private Stage sStage;
     private World sWorld;
@@ -26,6 +26,9 @@ public class StartScreen extends BaseScreen {
     private Box2DDebugRenderer sDebugRenderer;
     private OrthographicCamera sWorldCamera;
 
+    //Al darme problemas con poner una imagen normal he decidido crear una escena con actores que no
+    //hacen nada simplemente estan de fondo; lo unico que hace esta clase es estar a la escucha de
+    //un toque en pantalla para saltar al juego principal
     public StartScreen(MainGame mainGame){
         super(mainGame);
 
@@ -82,12 +85,7 @@ public class StartScreen extends BaseScreen {
 
         boolean touched = Gdx.input.justTouched();
         if(touched){
-            this.sStage.addAction(Actions.sequence(Actions.delay(0f), Actions.run(new Runnable() {
-                @Override
-                public void run() {
-                    mainGame.setScreen(mainGame.gameScreen);
-                }
-            })));
+            mainGame.setScreen(new GameScreen(mainGame));
         }
     }
 

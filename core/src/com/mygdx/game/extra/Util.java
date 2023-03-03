@@ -22,6 +22,7 @@ public class Util {
     public static final String CRASH_SOUND = "choque.wav";
     public static final String MUSIC = "musica.wav";
     public static final String MOTOR = "motor.wav";
+    public static final String GAME_OVER = "game_over.png";
 
     //Cuerpos
     public static final String USER_RED_CAR = "mainCar";

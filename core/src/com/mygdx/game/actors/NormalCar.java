@@ -20,6 +20,7 @@ public class NormalCar extends Actor {
     private Body body;
     private Fixture fixture;
 
+    //Se crea un coche de textura aleatoria la cual ya se pasa por parametro
     public NormalCar(World world, TextureRegion normalCarTexture, Vector2 position){
         this.world = world;
         this.normalCarTexture = normalCarTexture;
@@ -46,10 +47,12 @@ public class NormalCar extends Actor {
         shape.dispose();
     }
 
+    //Se comprueba si el coche ha salido de la pantalla
     public boolean isOutOfScreen(){
             return this.body.getPosition().y <= -1f;
     }
 
+    //Para el coche
     public void stopNormalCar(){
         body.setLinearVelocity(0,0);
     }
